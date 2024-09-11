@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<section th:if="${ingredient}">
+    <a href="/">View All Cocktails:</a>
+    <p>
+        Showing results for; <strong th:text="${ingredient}"></strong>
+    </p>
+</section>
+<section>
+    <ul>
+        <li th:each="cocktail : ${cocktails}">
+            <a th:href="@{'/cocktail?name=' +${cocktail.name}}" th:text="${cocktail.name}"></a>
+        </li>
+    </ul>
+</section>
+<form action="/search" method="get">
+    <label for="ingredient"> Search by ingredient:</label>
+    <input type="text" id="ingredient" name="ingredient" placeholder="Enter cocktail"
+           th:value="${ingredient !=null} ? ${ingredient} : ''">
+    <button type="submit">Search</button>
+</form>
+
+</body>
+</html>
