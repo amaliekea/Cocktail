@@ -2,6 +2,7 @@ package com.sergio.thymeleaf.cocktails;
 
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -18,5 +19,9 @@ public class CocktailService {
 
     public Cocktail getCocktailByName(String name) {
         return cocktailRepository.getCocktailByName(name);
+    }
+
+    public HashMap<String, Integer> getGroceryList() {
+        return cocktailRepository.getGroceryList();
     }
 }

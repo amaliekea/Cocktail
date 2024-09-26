@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -39,4 +40,10 @@ public class CocktailController {
         return "cocktail-detail";
     }
 
+    @GetMapping("/groceries")
+    public String getGroceryList(Model model) {
+        HashMap<String, Integer> groceryList = cocktailService.getGroceryList();
+        model.addAttribute("grocery", groceryList);
+        return "grocery-list";
+    }
 }

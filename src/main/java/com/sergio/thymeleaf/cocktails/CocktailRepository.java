@@ -4,6 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 @Repository
@@ -36,10 +37,24 @@ public class CocktailRepository {
 
     public Cocktail getCocktailByName(String name) {
         for (Cocktail c : cocktails) {
-            if(c.getName().equals(name)) {
+            if (c.getName().equals(name)) {
                 return c;
             }
         }
         return null;
+    }
+
+    public HashMap<String, Integer> getGroceryList() {
+        HashMap<String, Integer> groceries = new HashMap<>();
+        for (Cocktail c : cocktails) {
+            for (Ingredient i : c.getIngredients()) {
+                if (groceries.containsKey(i.getName())) {
+                    groceries.put(i.getName(),groceries.get(i.getName())+1);
+                } else {
+                    groceries.put(i.getName(), 1);
+                }
+            }
+        }
+        return groceries;
     }
 }

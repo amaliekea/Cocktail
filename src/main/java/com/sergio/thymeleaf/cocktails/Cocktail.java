@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Cocktail {
     private String name;
-    private List<Ingredient> ingredients;
+    final private List<Ingredient> ingredients;
 
     public Cocktail(String name, List<Ingredient> ingredients) {
         this.name = name;
@@ -21,9 +21,5 @@ public class Cocktail {
 
     public List<Ingredient> getIngredients() {
         return ingredients;
-    }
-
-    public void setIngredients(List<Ingredient> ingredients) {
-        this.ingredients = ingredients;
     }
 }

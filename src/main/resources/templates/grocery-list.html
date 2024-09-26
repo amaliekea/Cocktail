@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<h1>Here is your grocery list!</h1>
+<ul>
+    <tr th:each="instance : ${grocery}">
+        <td th:text="${instance.key}">:</td>
+        <td th:text="${instance.value}"></td>
+        <br>
+    </tr>
+</ul>
+</body>
+</html>
